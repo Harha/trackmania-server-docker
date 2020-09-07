@@ -8,9 +8,12 @@ services:
       - '2354:2354'
       - '5004:5004'
     environment:
+      MASTERSERVER_LOGIN: "your_login"
+      MASTERSERVER_PASSWORD: "your_password"
       SERVER_IP: "0.0.0.0"
-      SERVER_TITLE: "harha/trackmania-server-docker"
+      SERVER_TITLE: "Trackmania"
+      SERVER_NAME: "harha/trackmania-server-docker"
     volumes:
-      - ./cfg_server.xml:/home/server/tm_server/UserData/Config/dedicated_cfg.txt
-      - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/tracklist.txt
+      - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml
+      - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/cfg_tracklist.xml
       - ./maps:/home/server/tm_server/UserData/Maps/Campaigns
