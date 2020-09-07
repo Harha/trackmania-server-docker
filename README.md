@@ -16,9 +16,13 @@ You're supposed to edit it to your likings if you want to run your own server. P
 
 #### MASTERSERVER_LOGIN
 
+NOTE: disabled atm, edit cfg_server.xml to specify this.
+
 Your players.trackmania.com dedicated server login.
 
 #### MASTERSERVER_PASSWORD
+
+NOTE: disabled atm, edit cfg_server.xml to specify this.
 
 Your players.trackmania.com dedicated server password.
 
