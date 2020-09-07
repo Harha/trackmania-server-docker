@@ -22,4 +22,4 @@ RUN chown -R server:server $SERVER_HOME
 USER server
 RUN chmod +x ./TrackmaniaServer
 
-CMD ./TrackmaniaServer /title=$SERVER_TITLE /game_settings=MatchSettings/tracklist.txt /dedicated_cfg=dedicated_cfg.txt
+CMD ./TrackmaniaServer /nodaemon /bindip=$SERVER_IP /title=$SERVER_TITLE /game_settings=MatchSettings/tracklist.txt /dedicated_cfg=dedicated_cfg.txt

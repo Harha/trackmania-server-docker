@@ -8,6 +8,7 @@ services:
       - '2354:2354'
       - '5004:5004'
     environment:
+      SERVER_IP: "0.0.0.0"
       SERVER_TITLE: "harha/trackmania-server-docker"
     volumes:
       - ./cfg_server.xml:/home/server/tm_server/UserData/Config/dedicated_cfg.txt
