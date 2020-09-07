@@ -23,15 +23,14 @@ USER server
 RUN chmod +x ./TrackmaniaServer
 
 # docs: https://doc.maniaplanet.com/dedicated-server/references/command-line
-CMD [
-  "./TrackmaniaServer",
-  "/nodaemon",
-  "/dedicated_cfg=cfg_server.xml",
-  "/game_settings=MatchSettings/cfg_tracklist.xml",
-  "/nologs",
-  "/login=$MASTERSERVER_LOGIN",
-  "/password=$MASTERSERVER_PASSWORD",
-  "/bindip=$SERVER_IP",
-  "/title=$SERVER_TITLE",
-  "/servername=$SERVER_NAME"
+CMD ["./TrackmaniaServer", \
+  "/nodaemon", \
+  "/dedicated_cfg=cfg_server.xml", \
+  "/game_settings=MatchSettings/cfg_tracklist.xml", \
+  "/nologs", \
+  "/login=$MASTERSERVER_LOGIN", \
+  "/password=$MASTERSERVER_PASSWORD", \
+  "/bindip=$SERVER_IP", \
+  "/title=$SERVER_TITLE", \
+  "/servername=$SERVER_NAME" \
 ]
