@@ -1,0 +1,15 @@
+version: '3.7'
+
+services:
+  server:
+    image: tm-server:latest
+    restart: always
+    ports:
+      - '2354:2354'
+      - '5004:5004'
+    environment:
+      SERVER_TITLE: "harha/trackmania-server-docker"
+    volumes:
+      - ./cfg_server.xml:/home/server/tm_server/UserData/Config/dedicated_cfg.txt
+      - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/tracklist.txt
+      - ./maps:/home/server/tm_server/UserData/Maps/Campaigns
