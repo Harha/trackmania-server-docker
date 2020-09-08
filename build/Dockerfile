@@ -24,10 +24,12 @@ USER server
 RUN chmod +x ./TrackmaniaServer
 RUN chmod +x *.sh
 
-EXPOSE 2354/tcp
-EXPOSE 2354/udp
-EXPOSE 5004/tcp
-EXPOSE 5004/udp
+EXPOSE 2350/tcp
+EXPOSE 2350/udp
+EXPOSE 3450/tcp
+EXPOSE 3450/udp
+EXPOSE 5000/tcp
+EXPOSE 5000/udp
 
 # docs: https://doc.maniaplanet.com/dedicated-server/references/command-line
 CMD "./run_server.sh"
