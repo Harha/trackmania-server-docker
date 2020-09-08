@@ -15,10 +15,10 @@ WORKDIR $HOME
 RUN curl -LJO http://files.v04.maniaplanet.com/server/TrackmaniaServer_Latest.zip
 RUN unzip TrackmaniaServer_Latest.zip -d tm_server/
 RUN rm TrackmaniaServer_Latest.zip
+WORKDIR $SERVER_HOME
 COPY run_server.sh .
 
 # switch to server user
-WORKDIR $SERVER_HOME
 RUN chown -R server:server $SERVER_HOME
 USER server
 RUN chmod +x ./TrackmaniaServer
