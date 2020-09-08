@@ -75,7 +75,7 @@
 		<p2p_cache_size>600</p2p_cache_size>
 
 		<force_ip_address></force_ip_address>
-		<server_port>2354</server_port>
+		<server_port>2350</server_port>
 		<client_port>0</client_port>
 		<bind_ip_address></bind_ip_address>
 		<use_nat_upnp></use_nat_upnp>
@@ -83,7 +83,7 @@
 		<gsp_name></gsp_name>						<!-- Game Server Provider name and info url -->
 		<gsp_url></gsp_url>						<!-- If you're a server hoster, you can use this to advertise your services -->
 
-		<xmlrpc_port>5004</xmlrpc_port>
+		<xmlrpc_port>5005</xmlrpc_port>
 		<xmlrpc_allowremote>False</xmlrpc_allowremote>			<!-- If you specify an ip adress here, it'll be the only accepted adress. this will improve security. -->
 
 		
