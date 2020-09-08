@@ -12,8 +12,6 @@ services:
       - "5005:5005/tcp"
       - "5005:5005/udp"
     environment:
-      SERVER_IP: "0.0.0.0"
-      SERVER_PORT: "2350"
       SERVER_TITLE: "Trackmania"
       SERVER_NAME: "harha/trackmania-server-docker"
     volumes:
