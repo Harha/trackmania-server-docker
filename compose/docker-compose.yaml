@@ -5,8 +5,9 @@ services:
     image: tm-server:latest
     restart: always
     ports:
-      - '2354:2354'
-      - '5004:5004'
+      - "2350:2350"
+      - "3450:3450"
+      - "5005:5005"
     environment:
       MASTERSERVER_LOGIN: "your_login"
       MASTERSERVER_PASSWORD: "your_password"
