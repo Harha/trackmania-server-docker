@@ -14,24 +14,6 @@ You're supposed to edit it to your likings if you want to run your own server. P
 
 ### Environment variables
 
-#### MASTERSERVER_LOGIN
-
-NOTE: disabled for now, edit cfg_server.xml to specify this.
-
-Your players.trackmania.com dedicated server login.
-
-#### MASTERSERVER_PASSWORD
-
-NOTE: disabled for now, edit cfg_server.xml to specify this.
-
-Your players.trackmania.com dedicated server password.
-
-#### SERVER_IP
-
-NOTE: disabled for now, edit cfg_server.xml to specify this.
-
-IP the server will bind to.
-
 #### SERVER_TITLE
 
 The TitleID for the game the server should be running. By default set to Trackmania 2020. Possible values are:
