@@ -5,13 +5,15 @@ services:
     image: tm-server:latest
     restart: always
     ports:
-      - "2350:2350"
-      - "3450:3450"
-      - "5005:5005"
+      - "2350:2350/tcp"
+      - "2350:2350/udp"
+      - "3450:3450/tcp"
+      - "3450:3450/udp"
+      - "5005:5005/tcp"
+      - "5005:5005/udp"
     environment:
-      MASTERSERVER_LOGIN: "your_login"
-      MASTERSERVER_PASSWORD: "your_password"
       SERVER_IP: "0.0.0.0"
+      SERVER_PORT: "2350"
       SERVER_TITLE: "Trackmania"
       SERVER_NAME: "harha/trackmania-server-docker"
     volumes:
