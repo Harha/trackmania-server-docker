@@ -11,7 +11,5 @@ echo "SERVER_NAME: ${SERVER_NAME}"
 ./TrackmaniaServer /nodaemon /nologs \
   /dedicated_cfg="cfg_server.xml" \
   /game_settings="MatchSettings/cfg_tracklist.xml" \
-  /bindip="${SERVER_IP}:${SERVER_PORT}" \
-  /forceip="${SERVER_IP}:${SERVER_PORT}" \
   /title="${SERVER_TITLE}" \
   /servername="${SERVER_NAME}"
