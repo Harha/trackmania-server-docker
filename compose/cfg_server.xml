@@ -76,6 +76,7 @@
 
 		<force_ip_address></force_ip_address>
 		<server_port>2350</server_port>
+		<server_p2p_port>3450</server_p2p_port>
 		<client_port>0</client_port>
 		<bind_ip_address></bind_ip_address>
 		<use_nat_upnp></use_nat_upnp>
