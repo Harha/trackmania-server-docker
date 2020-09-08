@@ -28,8 +28,7 @@ EXPOSE 2350/tcp
 EXPOSE 2350/udp
 EXPOSE 3450/tcp
 EXPOSE 3450/udp
-EXPOSE 5005/tcp
-EXPOSE 5005/udp
+EXPOSE 5005
 
 # docs: https://doc.maniaplanet.com/dedicated-server/references/command-line
 CMD "./run_server.sh"
