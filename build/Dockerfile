@@ -24,6 +24,7 @@ RUN chmod +x ./TrackmaniaServer
 
 # docs: https://doc.maniaplanet.com/dedicated-server/references/command-line
 CMD ["sh", "-c", \
+  "\"", \
   "./TrackmaniaServer", \
   "/nodaemon", \
   "/dedicated_cfg=cfg_server.xml", \
@@ -32,4 +33,5 @@ CMD ["sh", "-c", \
   "/bindip=${SERVER_IP}", \
   "/title=${SERVER_TITLE}", \
   "/servername=${SERVER_NAME}" \
+  "\"", \
 ]
