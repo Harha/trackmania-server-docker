@@ -8,9 +8,11 @@ echo "SERVER_TITLE: ${SERVER_TITLE}"
 echo "SERVER_NAME: ${SERVER_NAME}"
 
 # start pyplanet
-python3 $PYPLANET_HOME/manage.py --detach --pid-file=pyplanet.pid
+cd $PYPLANET_HOME
+python3 manage.py --detach --pid-file=pyplanet.pid
 
 # start server
+cd $SERVER_HOME
 ./TrackmaniaServer /nodaemon /nologs \
   /dedicated_cfg="cfg_server.xml" \
   /game_settings="MatchSettings/cfg_tracklist.xml" \
@@ -18,4 +20,5 @@ python3 $PYPLANET_HOME/manage.py --detach --pid-file=pyplanet.pid
   /servername="${SERVER_NAME}"
 
 # stop pyplanet
+cd $PYPLANET_HOME
 kill -SIGTERM `cat pyplanet.pid`
