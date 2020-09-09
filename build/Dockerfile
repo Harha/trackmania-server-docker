@@ -2,13 +2,17 @@ FROM debian:buster
 
 # update & install packages
 RUN apt-get update -yq && apt-get install -yq curl unzip
+RUN apt-get install -yq python3 python3-pip
+RUN apt-get install -yq build-essential libssl-dev libffi-dev zlib1g-dev liblzma-dev
 
 # create server user
 ENV HOME=/home/server
 ENV SERVER_HOME=/home/server/tm_server
+ENV PYPLANET_HOME=/home/server/pyplanet
 RUN mkdir -p /home/server
 RUN groupadd server && useradd -g server server
 RUN mkdir -p $SERVER_HOME
+RUN mkdir -p $PYPLANET_HOME
 
 # install dedicated server files
 WORKDIR $HOME
@@ -19,11 +23,17 @@ WORKDIR $SERVER_HOME
 COPY run_server.sh .
 
 # switch to server user
-RUN chown -R server:server $SERVER_HOME
+RUN chown -R server:server $HOME
 USER server
 RUN chmod +x ./TrackmaniaServer
 RUN chmod +x *.sh
 
+# install pyplanet
+ENV PATH="${PATH}:/home/server/.local/bin"
+RUN pip3 install --user pyplanet
+ADD pyplanet $PYPLANET_HOME
+
+# expose ports
 EXPOSE 2350/tcp
 EXPOSE 2350/udp
 EXPOSE 3450/tcp

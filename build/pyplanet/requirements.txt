@@ -1,0 +1,5 @@
+# Core, require PyPlanet itself.
+pyplanet
+
+# Add your apps requirements here:
+

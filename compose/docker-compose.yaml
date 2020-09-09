@@ -1,9 +1,24 @@
 version: '3.7'
 
 services:
+  database:
+    image: mariadb:latest
+    volumes:
+      - database-volume:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pyplanet
+      MYSQL_USER: pyplanet
+      MYSQL_PASSWORD: pyplanet
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    networks:
+      - tm-server
   server:
     image: tm-server:latest
-    restart: always
+    depends_on:
+      - database
     ports:
       - "2350:2350/tcp"
       - "2350:2350/udp"
@@ -17,3 +32,14 @@ services:
       - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml
       - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/cfg_tracklist.xml
       - ./maps:/home/server/tm_server/UserData/Maps/Campaigns
+      - ./pyplanet/settings:/home/server/pyplanet/settings
+    networks:
+      - tm-server
+
+networks:
+  tm-server:
+    driver: bridge
+
+volumes:
+  database-volume:
+    driver: local
