@@ -9,7 +9,7 @@ echo "SERVER_NAME: ${SERVER_NAME}"
 
 # start pyplanet
 cd $PYPLANET_HOME
-python3 manage.py --detach --pid-file=pyplanet.pid
+python3 manage.py start --detach --pid-file=pyplanet.pid
 
 # start server
 cd $SERVER_HOME
