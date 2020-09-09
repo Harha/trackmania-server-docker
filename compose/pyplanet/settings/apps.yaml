@@ -14,4 +14,4 @@ apps:
     - 'pyplanet.apps.contrib.best_cps'
     - 'pyplanet.apps.contrib.voting'
     - 'pyplanet.apps.contrib.ads'
-    - 'pyplanet.apps.contrib.funcmd
+    - 'pyplanet.apps.contrib.funcmd'

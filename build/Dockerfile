@@ -32,6 +32,7 @@ RUN chmod +x *.sh
 ENV PATH="${PATH}:/home/server/.local/bin"
 RUN pip3 install --user pyplanet
 ADD pyplanet $PYPLANET_HOME
+RUN mkdir $PYPLANET_HOME/tmp && mkdir $PYPLANET_HOME/logs
 
 # expose ports
 EXPOSE 2350/tcp
