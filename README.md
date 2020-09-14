@@ -14,6 +14,18 @@ The compose directory contains an example compose & config files for actually st
 
 You're supposed to edit it to your likings if you want to run your own server. Put your maps into the compose/maps folder. Download from trackmania exchange.
 
+Example compose command to deploy the stack. The `p` argument specifies project name that you can change to easily deploy multiple server stacks on same machine.
+
+```bash
+docker-compose -p tm_server -f docker-compose.yaml up -d
+```
+
+You can also easily deploy the stack remotely to a target dedicated server (that has docker running in it)
+
+```bash
+DOCKER_HOST="ssh://server@remote.addr" docker-compose -p tm_server -f docker-compose.yaml up -d
+```
+
 ### Environment variables
 
 #### SERVER_TITLE

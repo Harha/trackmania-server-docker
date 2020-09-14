@@ -13,10 +13,17 @@ services:
       MYSQL_USER: pyplanet
       MYSQL_PASSWORD: pyplanet
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    healthcheck:
+      test: mysql --user=root --password=$$MYSQL_ROOT_PASSWORD --execute="SHOW DATABASES;"
+      interval: 60s
+      timeout: 2s
+      retries: 1
+      start_period: 15s
     networks:
       - tm-server
   server:
     image: tm-server:latest
+    restart: on-failure
     depends_on:
       - database
     ports:
