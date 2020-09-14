@@ -22,7 +22,7 @@ services:
     networks:
       - tm-server
   server:
-    image: tm-server:latest
+    image: harha/trackmania-server-docker:latest
     restart: on-failure
     depends_on:
       - database
