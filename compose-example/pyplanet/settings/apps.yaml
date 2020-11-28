@@ -1,0 +1,17 @@
+apps:
+  default:
+    - 'pyplanet.apps.contrib.admin'
+    - 'pyplanet.apps.contrib.jukebox'
+    - 'pyplanet.apps.contrib.karma'
+    - 'pyplanet.apps.contrib.local_records'
+    - 'pyplanet.apps.contrib.dedimania'
+    - 'pyplanet.apps.contrib.players'
+    - 'pyplanet.apps.contrib.info'
+    - 'pyplanet.apps.contrib.mx'
+    - 'pyplanet.apps.contrib.transactions'
+    - 'pyplanet.apps.contrib.sector_times'
+    - 'pyplanet.apps.contrib.clock'
+    - 'pyplanet.apps.contrib.best_cps'
+    - 'pyplanet.apps.contrib.voting'
+    - 'pyplanet.apps.contrib.ads'
+    - 'pyplanet.apps.contrib.funcmd'

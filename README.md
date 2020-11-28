@@ -1,18 +1,24 @@
 # trackmania-server-docker
 
-Docker image for running a trackmania 2020 dedicated server easily.
+Docker image(s) for running a trackmania 2020 dedicated server + pyplanet easily.
 
-I've added PyPlanet to the installation with basic configuration example in the docker-compose section. Later I will probably divide this into 2 images, 1 for server and 1 for pyplanet, to easily control multiple servers with 1 pyplanet container. The PyPlanet documentation says, that the SFTP/SCP/SSH drivers do not work yet for remote-controlling different servers, which is why I haven't done this yet.
+The project is divided into 3 images, separated by tags. I suggest new users to use the :server & :pyplanet images separately, since this makes it possible to have multiple servers controlled by single pyplanet container.
 
-## build
-
-The build directory contains the Dockerfile instructions to build a working image to be used as a container.
+* :latest
+  * This tag is a 'legacy' image, it's a combined trackmania server + pyplanet installation
+  * Built from folder ./build-legacy
+* :server
+  * This tag is the latest version of the trackmania server image
+  * Built from folder ./build-server
+* :pyplanet
+  * This tag is the latest version of the pyplanet server controller image
+  * Built from folder ./build-pyplanet
 
 ## compose
 
-The compose directory contains an example compose & config files for actually starting & running a container with the built image.
+The compose directories contain example compose & config files for actually starting & running container(s) with the built image(s).
 
-You're supposed to edit it to your likings if you want to run your own server. Put your maps into the compose/maps folder. Download from trackmania exchange.
+You're supposed to edit it to your likings if you want to run your own server. Put your maps into the `compose-(example|legacy)/maps` folder. Download from trackmania exchange.
 
 Example compose command to deploy the stack. The `p` argument specifies project name that you can change to easily deploy multiple server stacks on same machine.
 
@@ -25,6 +31,16 @@ You can also easily deploy the stack remotely to a target dedicated server (that
 ```bash
 DOCKER_HOST="ssh://server@remote.addr" docker-compose -p tm_server -f docker-compose.yaml up -d
 ```
+
+### compose-example
+
+This example folder contains files to start separate trackmania server and pyplanet containers with the :server & :pyplanet images.
+
+New users should start with this example. The compose-legacy example exists only for those who have used the single :latest image before I separated it into :server & :pyplanet images and for those who want a simple single all-in-one container.
+
+### compose-legacy
+
+This example folder contains files to start a trackmania server + pyplanet server container with the :latest `legacy` image.
 
 ### Environment variables
 
@@ -45,4 +61,4 @@ The visible name for the server.
 
 ### PyPlanet configuration
 
-PyPlanet controller can be configured via compose/pyplanet/settings/*.yaml files. For documentation, go to: https://pypla.net/en/latest/intro/configuration.html
+PyPlanet controller can be configured via `compose-(example|legacy)/pyplanet/settings/*.yaml` files. For documentation, go to: https://pypla.net/en/latest/intro/configuration.html
