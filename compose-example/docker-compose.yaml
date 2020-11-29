@@ -5,8 +5,8 @@ services:
     image: mariadb:latest
     volumes:
       - database-volume:/var/lib/mysql
-    ports:
-      - "3306:3306"
+    expose:
+      - 3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: pyplanet
@@ -34,7 +34,8 @@ services:
       - "2350:2350/udp"
       - "3450:3450/tcp"
       - "3450:3450/udp"
-      - "5005:5005"
+    expose:
+      - 5005
     volumes:
       - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml:Z
       - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/cfg_tracklist.xml:Z
