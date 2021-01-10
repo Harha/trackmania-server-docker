@@ -19,7 +19,7 @@ RUN chmod +x *.sh
 
 # install pyplanet
 ENV PATH="${PATH}:/home/server/.local/bin"
-RUN pip3 install --user pyplanet
+RUN pip3 install --user -r $PYPLANET_HOME/requirements.txt
 ADD pyplanet $PYPLANET_HOME
 RUN mkdir $PYPLANET_HOME/tmp && mkdir $PYPLANET_HOME/logs
 
