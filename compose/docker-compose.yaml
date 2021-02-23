@@ -3,10 +3,11 @@ version: '3.7'
 services:
   database:
     image: mariadb:latest
+    restart: on-failure
     volumes:
       - database-volume:/var/lib/mysql
-    ports:
-      - "3306:3306"
+    expose:
+      - 3306
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: pyplanet
@@ -20,31 +21,41 @@ services:
       retries: 1
       start_period: 15s
     networks:
-      - tm-server
+      - server-network
   server:
-    image: harha/trackmania-server-docker:latest
+    image: tmserver:latest
     restart: on-failure
     depends_on:
       - database
+    environment:
+      SERVER_TITLE: "Trackmania"
+      SERVER_NAME: "harha/trackmania-server-docker"
     ports:
       - "2350:2350/tcp"
       - "2350:2350/udp"
       - "3450:3450/tcp"
       - "3450:3450/udp"
-      - "5005:5005"
-    environment:
-      SERVER_TITLE: "Trackmania"
-      SERVER_NAME: "harha/trackmania-server-docker"
+    expose:
+      - 5005
     volumes:
-      - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml
-      - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/cfg_tracklist.xml
-      - ./maps:/home/server/tm_server/UserData/Maps/Campaigns
-      - ./pyplanet/settings:/home/server/pyplanet/settings
+      - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml:Z
+      - ./cfg_tracklist.xml:/home/server/tm_server/UserData/Maps/MatchSettings/cfg_tracklist.xml:Z
+      - ./maps:/home/server/tm_server/UserData/Maps/Campaigns:Z
     networks:
-      - tm-server
+      - server-network
+  controller:
+    image: tmpyplanet:latest
+    restart: on-failure
+    depends_on:
+      - database
+      - server
+    volumes:
+      - ./pyplanet/settings:/home/server/pyplanet/settings:Z
+    networks:
+      - server-network
 
 networks:
-  tm-server:
+  server-network:
     driver: bridge
 
 volumes:
