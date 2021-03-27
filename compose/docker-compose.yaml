@@ -23,7 +23,7 @@ services:
     networks:
       - server-network
   server:
-    image: tmserver:latest
+    image: harha/trackmania-server-docker:server
     restart: on-failure
     depends_on:
       - database
@@ -44,7 +44,7 @@ services:
     networks:
       - server-network
   controller:
-    image: tmpyplanet:latest
+    image: harha/trackmania-server-docker:pyplanet
     restart: on-failure
     depends_on:
       - database
