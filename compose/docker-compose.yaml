@@ -39,7 +39,7 @@ services:
       - 5005
     volumes:
       - ./cfg_server.xml:/home/server/tm_server/UserData/Config/cfg_server.xml:Z
-      - ./maps:/home/server/tm_server/UserData/Maps:Z
+      - ./maps:/home/server/tm_server/UserData/Maps:z
     networks:
       - server-network
   controller:
@@ -50,6 +50,7 @@ services:
       - server
     volumes:
       - ./pyplanet/settings:/home/server/pyplanet/settings:Z
+      - ./maps:/home/server/tm_server/UserData/Maps:z
     networks:
       - server-network
 
